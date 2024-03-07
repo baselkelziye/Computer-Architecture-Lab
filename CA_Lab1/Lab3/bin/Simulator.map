@@ -1,0 +1,201 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\elias\Desktop\CA-Pojects\lab3\bin\Simulator.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+lcd.asm.o                               Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            231     R     0xC000     0xC0E6   ROM_C000
+.data                              2   R/W     0x1000     0x1001   RAM
+.const                           132     R     0xC0E7     0xC16A   ROM_C000
+.stack                           256   R/W     0x1002     0x1101   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):         16D (dec:      365)
+READ_WRITE (R/W):      102 (dec:      258)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      3E      62       0   .init       
+     main                                      C000       0       0       0   .init       
+     back                                      C03E       2       2       0   .init       
+- VARIABLES:
+     MSG1                                      C0E7      10      16       1   .const      
+     MSG2                                      C0F7      10      16       1   .const      
+     msgA                                      C107      25      37       1   .const      
+     msgB                                      C12C      12      18       1   .const      
+     msgC                                      C13E      12      18       1   .const      
+     msgD                                      C150      12      18       1   .const      
+- LABELS:
+     __SEG_END_SSTACK                          1102       0       0       1               
+MODULE:                 -- lcd.asm.o --
+- PROCEDURES:
+     initLCD                                   C040      27      39       1   .init       
+     inext1                                    C067      18      24       0   .init       
+     inext2                                    C07F       F      15       0   .init       
+     writeLine                                 C08E       F      15       6   .init       
+     writeLine1                                C09D       2       2       0   .init       
+     wDo                                       C09F       8       8       0   .init       
+     next                                      C0A7       B      11       0   .init       
+     wEnd                                      C0B2       3       3       0   .init       
+     delay_10ms                                C0B5       8       8       3   .init       
+     delay_5ms                                 C0BD       8       8       2   .init       
+     delay_50us                                C0C5       8       8       1   .init       
+     del1                                      C0CD       6       6       0   .init       
+     sel_data                                  C0D3       4       4       1   .init       
+     sel_inst                                  C0D7       4       4       3   .init       
+     outputByte                                C0DB       C      12       4   .init       
+- VARIABLES:
+     VAR00001                                  1000       1       1       2   .data       
+     temp1                                     1001       1       1       0   .data       
+     VAR00002                                  C162       1       1       1   .const      
+     VAR00003                                  C163       1       1       0   .const      
+     VAR00004                                  C164       1       1       0   .const      
+     VAR00005                                  C165       1       1       0   .const      
+     VAR00006                                  C166       1       1       1   .const      
+     VAR00007                                  C167       1       1       0   .const      
+     VAR00008                                  C168       1       1       0   .const      
+     VAR00009                                  C169       1       1       0   .const      
+     VAR00010                                  C16A       1       1       0   .const      
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   0     64    123
+  lcd.asm.o                                    2    167      9
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".data"
+  VAR00001 temp1 
+SECTION: ".init"
+  main Entry back initLCD inext1 inext2 writeLine writeLine1 wDo next wEnd 
+  delay_10ms delay_5ms delay_50us del1 sel_data sel_inst outputByte 
+SECTION: ".const"
+  MSG1 MSG2 msgA msgB msgC msgD VAR00002 VAR00003 VAR00004 VAR00005 VAR00006 
+  VAR00007 VAR00008 VAR00009 VAR00010 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     VAR00001                                  1000       1       1       2   .data       
+     temp1                                     1001       1       1       0   .data       
+     main                                      C000       0       0       0   .init       
+     Entry                                     C000      3E      62       0   .init       
+     back                                      C03E       2       2       0   .init       
+     initLCD                                   C040      27      39       1   .init       
+     inext1                                    C067      18      24       0   .init       
+     inext2                                    C07F       F      15       0   .init       
+     writeLine                                 C08E       F      15       6   .init       
+     writeLine1                                C09D       2       2       0   .init       
+     wDo                                       C09F       8       8       0   .init       
+     next                                      C0A7       B      11       0   .init       
+     wEnd                                      C0B2       3       3       0   .init       
+     delay_10ms                                C0B5       8       8       3   .init       
+     delay_5ms                                 C0BD       8       8       2   .init       
+     delay_50us                                C0C5       8       8       1   .init       
+     del1                                      C0CD       6       6       0   .init       
+     sel_data                                  C0D3       4       4       1   .init       
+     sel_inst                                  C0D7       4       4       3   .init       
+     outputByte                                C0DB       C      12       4   .init       
+     MSG1                                      C0E7      10      16       1   .const      
+     MSG2                                      C0F7      10      16       1   .const      
+     msgA                                      C107      25      37       1   .const      
+     msgB                                      C12C      12      18       1   .const      
+     msgC                                      C13E      12      18       1   .const      
+     msgD                                      C150      12      18       1   .const      
+     VAR00002                                  C162       1       1       1   .const      
+     VAR00003                                  C163       1       1       0   .const      
+     VAR00004                                  C164       1       1       0   .const      
+     VAR00005                                  C165       1       1       0   .const      
+     VAR00006                                  C166       1       1       1   .const      
+     VAR00007                                  C167       1       1       0   .const      
+     VAR00008                                  C168       1       1       0   .const      
+     VAR00009                                  C169       1       1       0   .const      
+     VAR00010                                  C16A       1       1       0   .const      
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK delay_10ms initLCD MSG1 
+                                writeLine MSG2 msgA msgB msgC msgD 
+initLCD                   USES delay_10ms VAR00002 VAR00001 sel_inst 
+inext1                    USES outputByte delay_5ms VAR00006 VAR00001 sel_inst 
+inext2                    USES outputByte delay_5ms 
+writeLine                 USES sel_inst 
+wDo                       USES outputByte sel_data 
+next                      USES outputByte 
+outputByte                USES delay_50us 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+    | 
+    +- delay_10ms          
+    |    
+    +- initLCD             
+    |  | 
+    |  +- delay_10ms           (see above)
+    |  |  
+    |  +- sel_inst            
+    |       
+    +- writeLine           
+       | 
+       +- sel_inst             (see above)
+          
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 365
+

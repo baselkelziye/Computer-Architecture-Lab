@@ -1,0 +1,137 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\elias\Desktop\CA-Pojects\Lab1\bin\Simulator.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+delay.asm.o                             Model: SMALL,         Lang: Assembler
+led.asm.o                               Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            101     R     0xC000     0xC064   ROM_C000
+.stack                           256   R/W     0x1000     0x10FF   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          67 (dec:      103)
+READ_WRITE (R/W):      100 (dec:      256)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000       8       8       0   .init       
+     main                                      C000       0       0       0   .init       
+     loop                                      C008       6       6       0   .init       
+     L1                                        C00E      10      16       0   .init       
+- VARIABLES:
+- LABELS:
+     __SEG_END_SSTACK                          1100       0       0       1               
+MODULE:                 -- delay.asm.o --
+- PROCEDURES:
+     delay_0_5sec                              C01E       5       5       1   .init       
+     L3                                        C023       3       3       0   .init       
+     L2                                        C026       F      15       0   .init       
+- VARIABLES:
+MODULE:                 -- led.asm.o --
+- PROCEDURES:
+     initLED                                   C035      17      23       1   .init       
+     setLED                                    C04C       7       7       2   .init       
+     getLED                                    C053       7       7       0   .init       
+     toggleLED                                 C05A       B      11       0   .init       
+- VARIABLES:
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   0     30      0
+  delay.asm.o                                  0     23      0
+  led.asm.o                                    0     48      0
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".init"
+  main Entry loop L1 delay_0_5sec L3 L2 initLED setLED getLED toggleLED 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     main                                      C000       0       0       0   .init       
+     Entry                                     C000       8       8       0   .init       
+     loop                                      C008       6       6       0   .init       
+     L1                                        C00E      10      16       0   .init       
+     delay_0_5sec                              C01E       5       5       1   .init       
+     L3                                        C023       3       3       0   .init       
+     L2                                        C026       F      15       0   .init       
+     initLED                                   C035      17      23       1   .init       
+     setLED                                    C04C       7       7       2   .init       
+     getLED                                    C053       7       7       0   .init       
+     toggleLED                                 C05A       B      11       0   .init       
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+NOT USED VARIABLES
+main.asm.o:
+  ctr 
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK initLED 
+loop                      USES setLED 
+L1                        USES setLED delay_0_5sec 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+    | 
+    +- initLED             
+         
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 2
+Total size of all blocks to be downloaded: 103
+

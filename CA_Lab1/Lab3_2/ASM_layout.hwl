@@ -1,0 +1,28 @@
+OPEN source 0 0 60 42
+Source < attributes TOOLTIP on,TOOLTIP_FORMAT signed,TOOLTIP_MODE details,FREEZE off,MARKS off
+OPEN assembly 60 0 40 30
+Assembly < attributes ADR on,CODE off,ABSADR on,SYMB off,FORMAT Auto,FREEZE off,TOPPC 0xC000
+OPEN procedure 60 60 40 17
+Procedure < attributes VALUES on,TYPES off
+OPEN register 60 30 40 30
+Register < attributes FORMAT AUTO,COMPLEMENT None
+OPEN memory 60 77 40 23
+Memory < attributes FORMAT hex,COMPLEMENT None,WORD 1,ASC on,ADR on,MODE automatic,UPDATERATE 10,ADDRESS 0x80
+OPEN data 0 42 60 28
+Data < attributes SCOPE global,COMPLEMENT None,FORMAT Symb,MODE automatic,SORT NotSort,UPDATERATE 10,NAMEWIDTH 16
+OPEN command 0 70 60 30
+Command < attributes CACHESIZE 1000
+OPEN lcd 69 65 10 9
+LCD < LCDPORT "0x32" "0x0"
+LCD < LINKADDR "0xfffff6" "0xfffff8" "0xfffffa" "0xfffffc" "0xfffffe"
+OPEN Io_led 71 49 6 7
+IO_Led< PORT 16777208
+IO_Led< DDR 1
+IO_Led < LINKADDR "0xfffff6" "0xfffff8" "0xfffffa" "0xfffffc" "0xfffffe"
+OPEN Push_buttons 69 36 11 7
+Push_Buttons < PBPORT "0x260"
+Push_Buttons < LINKADDR "0xfffff6" "0xfffff8" "0xfffffa" "0xfffffc" "0xfffffe"
+bckcolor 50331647
+font 'Courier New' 9 BLACK
+AUTOSIZE on
+ACTIVATE "Assembly" "Memory" "Data" "Procedure" "Source" "Command" "LCD" "Register" "Push_Buttons" "IO_Led"

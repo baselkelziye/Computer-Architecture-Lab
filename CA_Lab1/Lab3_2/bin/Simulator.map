@@ -1,0 +1,269 @@
+*** EVALUATION ***
+PROGRAM "S:\Documents\CA-Labor\Labor1\Lab3_2\bin\Simulator.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+lcd.asm.o                               Model: SMALL,         Lang: Assembler
+delay.asm.o                             Model: SMALL,         Lang: Assembler
+hexToASCII.asm.o                        Model: SMALL,         Lang: Assembler
+led.asm.o                               Model: SMALL,         Lang: Assembler
+decToASCII.asm.o                        Model: SMALL,         Lang: Assembler
+button.asm.o                            Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                            566     R     0xC000     0xC235   ROM_C000
+.data                             36   R/W     0x1000     0x1023   RAM
+.const                            25     R     0xC236     0xC24E   ROM_C000
+.stack                           256   R/W     0x1024     0x1123   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):         251 (dec:      593)
+READ_WRITE (R/W):      124 (dec:      292)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000      17      23       0   .init       
+     main                                      C000       0       0       0   .init       
+     loop1                                     C017      28      40       0   .init       
+     back                                      C03F       2       2       0   .init       
+- VARIABLES:
+     strDecVal                                 1000      11      17       1   .data       
+     strHexVal                                 1011      11      17       2   .data       
+- LABELS:
+     __SEG_END_SSTACK                          1124       0       0       1               
+MODULE:                 -- lcd.asm.o --
+- PROCEDURES:
+     initLCD                                   C041      27      39       1   .init       
+     inext1                                    C068      18      24       0   .init       
+     inext2                                    C080       F      15       0   .init       
+     writeLine                                 C08F       F      15       2   .init       
+     writeLine1                                C09E       2       2       0   .init       
+     wDo                                       C0A0       8       8       0   .init       
+     next                                      C0A8       B      11       0   .init       
+     wEnd                                      C0B3       3       3       0   .init       
+     delay_10ms                                C0B6       8       8       3   .init       
+     delay_5ms                                 C0BE       8       8       2   .init       
+     delay_50us                                C0C6       8       8       1   .init       
+     del1                                      C0CE       6       6       0   .init       
+     sel_data                                  C0D4       4       4       1   .init       
+     sel_inst                                  C0D8       4       4       3   .init       
+     outputByte                                C0DC       C      12       4   .init       
+- VARIABLES:
+     VAR00001                                  1022       1       1       2   .data       
+     temp1                                     1023       1       1       0   .data       
+     VAR00002                                  C236       1       1       1   .const      
+     VAR00003                                  C237       1       1       0   .const      
+     VAR00004                                  C238       1       1       0   .const      
+     VAR00005                                  C239       1       1       0   .const      
+     VAR00006                                  C23A       1       1       1   .const      
+     VAR00007                                  C23B       1       1       0   .const      
+     VAR00008                                  C23C       1       1       0   .const      
+     VAR00009                                  C23D       1       1       0   .const      
+     VAR00010                                  C23E       1       1       0   .const      
+MODULE:                 -- delay.asm.o --
+- PROCEDURES:
+     delay_0_5sec                              C0E8       5       5       1   .init       
+     L3                                        C0ED       3       3       0   .init       
+     L2                                        C0F0       F      15       0   .init       
+- VARIABLES:
+MODULE:                 -- hexToASCII.asm.o --
+- PROCEDURES:
+     hexNibbleToAscii                          C0FF       E      14       4   .init       
+     shiftRight                                C10D       8       8       3   .init       
+     hexToASCII                                C115      37      55       1   .init       
+- VARIABLES:
+     H2A                                       C23F      10      16       1   .const      
+MODULE:                 -- led.asm.o --
+- PROCEDURES:
+     initLED                                   C14C      17      23       1   .init       
+     setLED                                    C163       7       7       1   .init       
+     getLED                                    C16A       7       7       0   .init       
+     toggleLED                                 C171       B      11       0   .init       
+- VARIABLES:
+MODULE:                 -- decToASCII.asm.o --
+- PROCEDURES:
+     decToASCII                                C17C      18      24       1   .init       
+     plusSign                                  C194       7       7       0   .init       
+     signExit                                  C19B      65     101       0   .init       
+- VARIABLES:
+MODULE:                 -- button.asm.o --
+- PROCEDURES:
+     initButton                                C200       6       6       1   .init       
+     updateCnt                                 C206      19      25       1   .init       
+     done                                      C21F       3       3       0   .init       
+     btn0pressed                               C222       5       5       0   .init       
+     btn1pressed                               C227       5       5       0   .init       
+     btn2pressed                               C22C       5       5       0   .init       
+     btn3pressed                               C231       5       5       0   .init       
+- VARIABLES:
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                  34     65      0
+  lcd.asm.o                                    2    167      9
+  delay.asm.o                                  0     23      0
+  hexToASCII.asm.o                             0     77     16
+  led.asm.o                                    0     48      0
+  decToASCII.asm.o                             0    132      0
+  button.asm.o                                 0     54      0
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".data"
+  strDecVal strHexVal VAR00001 temp1 
+SECTION: ".init"
+  main Entry loop1 back initLCD inext1 inext2 writeLine writeLine1 wDo next 
+  wEnd delay_10ms delay_5ms delay_50us del1 sel_data sel_inst outputByte 
+  delay_0_5sec L3 L2 hexNibbleToAscii shiftRight hexToASCII initLED setLED 
+  getLED toggleLED decToASCII plusSign signExit initButton updateCnt done 
+  btn0pressed btn1pressed btn2pressed btn3pressed 
+SECTION: ".const"
+  VAR00002 VAR00003 VAR00004 VAR00005 VAR00006 VAR00007 VAR00008 VAR00009 
+  VAR00010 H2A 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     strDecVal                                 1000      11      17       1   .data       
+     strHexVal                                 1011      11      17       2   .data       
+     VAR00001                                  1022       1       1       2   .data       
+     temp1                                     1023       1       1       0   .data       
+     main                                      C000       0       0       0   .init       
+     Entry                                     C000      17      23       0   .init       
+     loop1                                     C017      28      40       0   .init       
+     back                                      C03F       2       2       0   .init       
+     initLCD                                   C041      27      39       1   .init       
+     inext1                                    C068      18      24       0   .init       
+     inext2                                    C080       F      15       0   .init       
+     writeLine                                 C08F       F      15       2   .init       
+     writeLine1                                C09E       2       2       0   .init       
+     wDo                                       C0A0       8       8       0   .init       
+     next                                      C0A8       B      11       0   .init       
+     wEnd                                      C0B3       3       3       0   .init       
+     delay_10ms                                C0B6       8       8       3   .init       
+     delay_5ms                                 C0BE       8       8       2   .init       
+     delay_50us                                C0C6       8       8       1   .init       
+     del1                                      C0CE       6       6       0   .init       
+     sel_data                                  C0D4       4       4       1   .init       
+     sel_inst                                  C0D8       4       4       3   .init       
+     outputByte                                C0DC       C      12       4   .init       
+     delay_0_5sec                              C0E8       5       5       1   .init       
+     L3                                        C0ED       3       3       0   .init       
+     L2                                        C0F0       F      15       0   .init       
+     hexNibbleToAscii                          C0FF       E      14       4   .init       
+     shiftRight                                C10D       8       8       3   .init       
+     hexToASCII                                C115      37      55       1   .init       
+     initLED                                   C14C      17      23       1   .init       
+     setLED                                    C163       7       7       1   .init       
+     getLED                                    C16A       7       7       0   .init       
+     toggleLED                                 C171       B      11       0   .init       
+     decToASCII                                C17C      18      24       1   .init       
+     plusSign                                  C194       7       7       0   .init       
+     signExit                                  C19B      65     101       0   .init       
+     initButton                                C200       6       6       1   .init       
+     updateCnt                                 C206      19      25       1   .init       
+     done                                      C21F       3       3       0   .init       
+     btn0pressed                               C222       5       5       0   .init       
+     btn1pressed                               C227       5       5       0   .init       
+     btn2pressed                               C22C       5       5       0   .init       
+     btn3pressed                               C231       5       5       0   .init       
+     VAR00002                                  C236       1       1       1   .const      
+     VAR00003                                  C237       1       1       0   .const      
+     VAR00004                                  C238       1       1       0   .const      
+     VAR00005                                  C239       1       1       0   .const      
+     VAR00006                                  C23A       1       1       1   .const      
+     VAR00007                                  C23B       1       1       0   .const      
+     VAR00008                                  C23C       1       1       0   .const      
+     VAR00009                                  C23D       1       1       0   .const      
+     VAR00010                                  C23E       1       1       0   .const      
+     H2A                                       C23F      10      16       1   .const      
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK delay_10ms initLCD initLED 
+                                initButton 
+loop1                     USES setLED strDecVal decToASCII writeLine strHexVal 
+                                hexToASCII delay_0_5sec updateCnt 
+initLCD                   USES delay_10ms VAR00002 VAR00001 sel_inst 
+inext1                    USES outputByte delay_5ms VAR00006 VAR00001 sel_inst 
+inext2                    USES outputByte delay_5ms 
+writeLine                 USES sel_inst 
+wDo                       USES outputByte sel_data 
+next                      USES outputByte 
+outputByte                USES delay_50us 
+hexNibbleToAscii          USES H2A 
+hexToASCII                USES shiftRight hexNibbleToAscii 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+    | 
+    +- delay_10ms          
+    |    
+    +- initLCD             
+    |  | 
+    |  +- delay_10ms           (see above)
+    |  |  
+    |  +- sel_inst            
+    |       
+    +- initLED             
+    |    
+    +- initButton          
+         
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 593
+

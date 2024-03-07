@@ -1,0 +1,136 @@
+*** EVALUATION ***
+PROGRAM "C:\Users\elias\Desktop\CA-Pojects\lab2\bin\Simulator.abs"
+
+*********************************************************************************************
+TARGET SECTION
+---------------------------------------------------------------------------------------------
+Processor   : Freescale HC12
+Memory Model: SMALL
+File Format : ELF\DWARF 2.0
+Linker      : SmartLinker V-5.0.40 Build 10203, Jul 23 2010
+
+*********************************************************************************************
+FILE SECTION
+---------------------------------------------------------------------------------------------
+main.asm.o                              Model: SMALL,         Lang: Assembler
+hexToASCII.asm.o                        Model: SMALL,         Lang: Assembler
+
+*********************************************************************************************
+STARTUP SECTION
+---------------------------------------------------------------------------------------------
+Entry point: 0xC000 (Entry)
+
+*********************************************************************************************
+SECTION-ALLOCATION SECTION
+Section Name                    Size  Type     From       To       Segment
+---------------------------------------------------------------------------------------------
+.init                             93     R     0xC000     0xC05C   ROM_C000
+.data                              7   R/W     0x1000     0x1006   RAM
+.const                            16     R     0xC05D     0xC06C   ROM_C000
+.stack                           256   R/W     0x1007     0x1106   RAM
+.vectSeg0_vect                     2     R     0xFFFE     0xFFFF   .vectSeg0
+
+Summary of section sizes per section type:
+READ_ONLY (R):          6F (dec:      111)
+READ_WRITE (R/W):      107 (dec:      263)
+
+*********************************************************************************************
+VECTOR-ALLOCATION SECTION
+    Address     InitValue   InitFunction
+---------------------------------------------------------------------------------------------
+     0xFFFE        0xC000   Entry
+
+*********************************************************************************************
+OBJECT-ALLOCATION SECTION
+     Name               Module                 Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+MODULE:                 -- main.asm.o --
+- PROCEDURES:
+     Entry                                     C000       E      14       0   .init       
+     main                                      C000       0       0       0   .init       
+     endLoop                                   C00E       2       2       0   .init       
+- VARIABLES:
+     Vtext                                     1000       7       7       1   .data       
+- LABELS:
+     __SEG_END_SSTACK                          1107       0       0       1               
+MODULE:                 -- hexToASCII.asm.o --
+- PROCEDURES:
+     hexNibbleToAscii                          C010       E      14       4   .init       
+     shiftRight                                C01E       8       8       3   .init       
+     hexToASCII                                C026      37      55       1   .init       
+- VARIABLES:
+     H2A                                       C05D      10      16       1   .const      
+
+*********************************************************************************************
+MODULE STATISTIC
+  Name                                      Data   Code  Const
+---------------------------------------------------------------------------------------------
+  main.asm.o                                   7     16      0
+  hexToASCII.asm.o                             0     77     16
+  other                                      256      2      0
+
+*********************************************************************************************
+SECTION USE IN OBJECT-ALLOCATION SECTION
+---------------------------------------------------------------------------------------------
+SECTION: ".data"
+  Vtext 
+SECTION: ".init"
+  main Entry endLoop hexNibbleToAscii shiftRight hexToASCII 
+SECTION: ".const"
+  H2A 
+
+*********************************************************************************************
+OBJECT LIST SORTED BY ADDRESS
+     Name                                      Addr   hSize   dSize     Ref    Section   RLIB
+---------------------------------------------------------------------------------------------
+     Vtext                                     1000       7       7       1   .data       
+     main                                      C000       0       0       0   .init       
+     Entry                                     C000       E      14       0   .init       
+     endLoop                                   C00E       2       2       0   .init       
+     hexNibbleToAscii                          C010       E      14       4   .init       
+     shiftRight                                C01E       8       8       3   .init       
+     hexToASCII                                C026      37      55       1   .init       
+     H2A                                       C05D      10      16       1   .const      
+
+*********************************************************************************************
+UNUSED-OBJECTS SECTION
+---------------------------------------------------------------------------------------------
+NOT USED VARIABLES
+main.asm.o:
+  Ctext 
+
+*********************************************************************************************
+COPYDOWN SECTION
+---------------------------------------------------------------------------------------------
+
+*********************************************************************************************
+OBJECT-DEPENDENCIES SECTION
+---------------------------------------------------------------------------------------------
+Entry                     USES __SEG_END_SSTACK Vtext hexToASCII 
+hexNibbleToAscii          USES H2A 
+hexToASCII                USES shiftRight hexNibbleToAscii 
+
+*********************************************************************************************
+DEPENDENCY TREE
+*********************************************************************************************
+ main and _Startup Group
+ | 
+ +- main                
+ |    
+ +- Entry               
+    | 
+    +- hexToASCII          
+       | 
+       +- shiftRight          
+       |    
+       +- hexNibbleToAscii    
+            
+*********************************************************************************************
+STATISTIC SECTION
+---------------------------------------------------------------------------------------------
+
+ExeFile:
+--------
+Number of blocks to be downloaded: 3
+Total size of all blocks to be downloaded: 111
+
